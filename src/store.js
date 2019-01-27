@@ -3,10 +3,10 @@ import { routerMiddleware } from 'connected-react-router'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import rootReducer from './modules'
+import initialState from './samples/initial-data'
 
 export const history = createHistory()
 
-const initialState = {}
 const enhancers = []
 const middleware = [thunk, routerMiddleware(history)]
 

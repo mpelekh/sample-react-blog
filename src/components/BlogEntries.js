@@ -1,43 +1,35 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import BlogPost from './BlogPost'
 
 class BlogEntries extends Component {
+  static propTypes = {
+    posts: PropTypes.array
+  }
+
+  static defaultPropTypes = {
+    posts: []
+  }
+
   render() {
+    const { posts } = this.props
+
     return (
       <div className="col-md-8">
         <h1 className="my-4">
           Page Heading <small>Secondary Text</small>
         </h1>
 
-        <BlogPost
-          title="Post Title"
-          description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a
-            laboriosam. Dicta expedita corporis animi vero voluptate
-            voluptatibus possimus, veniam magni quis!"
-          date="January 1, 2017"
-          author="Mykola Pelekh"
-        />
-
-        <BlogPost
-          title="Post Title"
-          description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a
-            laboriosam. Dicta expedita corporis animi vero voluptate
-            voluptatibus possimus, veniam magni quis!"
-          date="January 1, 2017"
-          author="Mykola Pelekh"
-        />
-
-        <BlogPost
-          title="Post Title"
-          description="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a
-            laboriosam. Dicta expedita corporis animi vero voluptate
-            voluptatibus possimus, veniam magni quis!"
-          date="January 1, 2017"
-          author="Mykola Pelekh"
-        />
+        {posts.map(({ id, title, body: description, date, author }) => (
+          <BlogPost
+            key={id}
+            title={title}
+            description={description}
+            date={date}
+            author={author}
+          />
+        ))}
 
         <ul className="pagination justify-description-center mb-4">
           <li className="page-item">
@@ -56,4 +48,8 @@ class BlogEntries extends Component {
   }
 }
 
-export default BlogEntries
+const mapStateToProps = ({ posts }) => ({
+  posts
+})
+
+export default connect(mapStateToProps)(BlogEntries)

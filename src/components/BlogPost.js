@@ -22,7 +22,7 @@ class BlogPost extends PureComponent {
           </a>
         </div>
         <div className="card-footer text-muted">
-          Posted on {date} by <a href="#">{author}</a>
+          Posted on {date} by {author}
         </div>
       </div>
     )
