@@ -6,6 +6,7 @@ import store, { history } from './store'
 import App from './containers/App'
 import * as serviceWorker from './serviceWorker'
 import './index.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 render(
   <Provider store={store}>

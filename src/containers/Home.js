@@ -1,27 +1,10 @@
-import React from 'react'
-import { push } from 'connected-react-router'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import React, { Component } from 'react'
+import BlogEntries from '../components/BlogEntries'
 
-const Home = props => (
-  <div>
-    <h1>Home</h1>
-    <p>Welcome home!</p>
-    <button onClick={() => props.changePage()}>
-      Go to about page via redux
-    </button>
-  </div>
-)
+class Home extends Component {
+  render() {
+    return <BlogEntries />
+  }
+}
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      changePage: () => push('/about-us')
-    },
-    dispatch
-  )
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Home)
+export default Home
