@@ -1,18 +1,25 @@
 import React, { PureComponent } from 'react'
 
-class SignIn extends PureComponent {
+class SignUp extends PureComponent {
   render() {
     return (
       <div className="col-md-8">
         <article>
-          <h1>Sign In</h1>
+          <h1>Sign Up</h1>
           <p>
-            Need an account? <a href="/sample-blog-react/signup">Sign up</a>{' '}
-            free. Your opinions and comments would be greatly appreciated.
+            Already got an account?{' '}
+            <a href="/sample-blog-react/signin">Sign in</a>, please.
           </p>
           <hr />
           <div className="well">
             <form autoComplete="off">
+              <div className="form-group has-feedback">
+                <input
+                  placeholder="Email"
+                  type="text"
+                  className="form-control"
+                />
+              </div>
               <div className="form-group has-feedback">
                 <input
                   placeholder="Username"
@@ -27,12 +34,18 @@ class SignIn extends PureComponent {
                   className="form-control"
                 />
               </div>
+              <div className="form-group has-feedback">
+                <input
+                  placeholder="Confirm Password"
+                  type="confirm_password"
+                  className="form-control"
+                />
+              </div>
               <button type="submit" className="btn btn-primary">
-                Sign In
+                Sign Up
               </button>
             </form>
           </div>
-
           <div>
             <hr />
             <p className="small">
@@ -51,4 +64,4 @@ class SignIn extends PureComponent {
   }
 }
 
-export default SignIn
+export default SignUp
