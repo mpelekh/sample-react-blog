@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import Home from './Home'
 import About from './About'
+import SignIn from './SignIn'
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
               <Route path="/posts" component={Home} exact />
               <Route path="/posts/:id" component={Home} />
               <Route path="/about" component={About} exact />
+              <Route path="/sign-in" component={SignIn} exact />
             </div>
           </div>
 
