@@ -6,6 +6,7 @@ const GET_POSTS_ERROR = 'GET_POSTS_ERROR'
 
 const initialState = {
   isLoading: false,
+  isLoaded: false,
   error: null,
   items: null
 }
@@ -29,7 +30,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: null,
-        isLoading: true
+        isLoading: true,
+        isLoaded: false
       }
     }
 
@@ -37,6 +39,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
+        isLoaded: true,
         error: action.payload
       }
     }
@@ -45,6 +48,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
+        isLoaded: true,
         error: null,
         items: action.payload
       }

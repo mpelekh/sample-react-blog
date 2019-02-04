@@ -6,6 +6,7 @@ import Home from './Home'
 import About from './About'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
+import BlogPostDetailsContainer from './BlogPostDetailsContainer'
 
 class App extends Component {
   render() {
@@ -19,7 +20,7 @@ class App extends Component {
               <Route path="/" component={Home} exact />
               <Route path="/home" component={Home} exact />
               <Route path="/posts" component={Home} exact />
-              <Route path="/posts/:id" component={Home} />
+              <Route path="/posts/:id" component={BlogPostDetailsContainer} />
               <Route path="/about" component={About} exact />
               <Route path="/sign-in" component={SignIn} exact />
               <Route path="/sign-up" component={SignUp} exact />
