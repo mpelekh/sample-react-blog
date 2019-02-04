@@ -7,6 +7,7 @@ export default function BlogPosts({ posts }) {
     posts.map(({ id, title, content: description, date, author }) => (
       <BlogPost
         key={id}
+        postId={id}
         title={title}
         description={description}
         date={date}
