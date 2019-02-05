@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-const GET_POSTS_LOADING = 'GET_POSTS_LOADING'
-const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS'
-const GET_POSTS_ERROR = 'GET_POSTS_ERROR'
+export const GET_POSTS_LOADING = 'GET_POSTS_LOADING'
+export const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS'
+export const GET_POSTS_ERROR = 'GET_POSTS_ERROR'
 
-const initialState = {
+export const INITIAL_STATE = {
   isLoading: false,
   isLoaded: false,
   error: null,
@@ -14,7 +14,7 @@ const initialState = {
 export const getAllPosts = () => dispatch => {
   dispatch({ type: GET_POSTS_LOADING })
 
-  axios
+  return axios
     .get('https://ui-course-server.now.sh/vyuskiv/posts')
     .then(result => {
       dispatch({ type: GET_POSTS_SUCCESS, payload: result.data })
@@ -24,7 +24,7 @@ export const getAllPosts = () => dispatch => {
     })
 }
 
-export default (state = initialState, action) => {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_POSTS_LOADING: {
       return {
