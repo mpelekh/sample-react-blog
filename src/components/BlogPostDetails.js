@@ -3,15 +3,20 @@ import PropTypes from 'prop-types'
 
 class DetailedPost extends PureComponent {
   static propTypes = {
-    post: PropTypes.object
+    post: PropTypes.object,
+    comments: PropTypes.array
   }
 
   static defaultPropTypes = {
-    post: {}
+    post: {},
+    comments: []
   }
 
   render() {
-    const { title, content, date, author } = this.props.post
+    const {
+      post: { title, content, date, author },
+      comments
+    } = this.props
 
     return (
       <div className="col-lg-8">
@@ -58,20 +63,20 @@ class DetailedPost extends PureComponent {
         </div>
 
         {/* Single Comment */}
-        <div className="media mb-4">
-          <img
-            className="d-flex mr-3 rounded-circle"
-            src="http://placehold.it/50x50"
-            alt=""
-          />
-          <div className="media-body">
-            <h5 className="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-            scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-            vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-            vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
-        </div>
+        {comments &&
+          comments.map(({ id, body, email, name }) => (
+            <div className="media mb-4" key={id}>
+              <img
+                className="d-flex mr-3 rounded-circle"
+                src="http://placehold.it/50x50"
+                alt=""
+              />
+              <div className="media-body">
+                <h5 className="mt-0">{email}</h5>
+                {body}
+              </div>
+            </div>
+          ))}
       </div>
     )
   }
