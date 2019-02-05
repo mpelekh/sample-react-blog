@@ -4,24 +4,90 @@ import postsReducer, {
   getAllPosts,
   INITIAL_STATE,
   GET_POSTS_LOADING,
-  GET_POSTS_SUCCESS
+  GET_POSTS_SUCCESS,
+  GET_POSTS_ERROR
 } from './posts'
 
 let mockStore = null
 
 describe('Posts module', () => {
-  beforeEach(() => {
-    mockStore = configureMockStore([thunk])(INITIAL_STATE)
+  describe('Action Creators', () => {
+    beforeEach(() => {
+      mockStore = configureMockStore([thunk])(INITIAL_STATE)
+    })
+
+    it('should perform expected actions on getAllPosts call', async () => {
+      const expectedActions = [
+        { type: GET_POSTS_LOADING },
+        { type: GET_POSTS_SUCCESS, payload: [{ id: 1, name: 'test name' }] }
+      ]
+
+      await mockStore.dispatch(getAllPosts())
+
+      expect(mockStore.getActions()).toEqual(expectedActions)
+    })
   })
 
-  it('should properly update state on a successful getAllPosts call', async () => {
-    const expectedActions = [
-      { type: GET_POSTS_LOADING },
-      { type: GET_POSTS_SUCCESS, payload: [{ id: 1, name: 'test name' }] }
-    ]
+  describe('Posts Reducer', () => {
+    it('should return the initial state', () => {
+      expect(postsReducer(undefined, {})).toEqual(INITIAL_STATE)
+    })
 
-    await mockStore.dispatch(getAllPosts())
+    it('should handle GET_POSTS_LOADING', () => {
+      expect(
+        postsReducer(INITIAL_STATE, {
+          type: GET_POSTS_LOADING
+        })
+      ).toEqual({
+        error: null,
+        isLoading: true,
+        isLoaded: false,
+        items: null
+      })
+    })
 
-    expect(mockStore.getActions()).toEqual(expectedActions)
+    it('should handle GET_POSTS_SUCCESS', () => {
+      expect(
+        postsReducer(
+          {
+            error: null,
+            isLoading: true,
+            isLoaded: false,
+            items: null
+          },
+          {
+            type: GET_POSTS_SUCCESS,
+            payload: [{ id: 1, name: 'test name' }]
+          }
+        )
+      ).toEqual({
+        error: null,
+        isLoading: false,
+        isLoaded: true,
+        items: [{ id: 1, name: 'test name' }]
+      })
+    })
+
+    it('should handle GET_POSTS_ERROR', () => {
+      expect(
+        postsReducer(
+          {
+            error: null,
+            isLoading: true,
+            isLoaded: false,
+            items: null
+          },
+          {
+            type: GET_POSTS_ERROR,
+            payload: new Error('mock error')
+          }
+        )
+      ).toEqual({
+        error: new Error('mock error'),
+        isLoading: false,
+        isLoaded: true,
+        items: null
+      })
+    })
   })
 })
