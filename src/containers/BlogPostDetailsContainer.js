@@ -5,15 +5,18 @@ import { getAllPosts } from '../modules/posts'
 import { getAllComments } from '../modules/comments'
 import BlogPostDetails from '../components/BlogPostDetails'
 
-class BlogPostDetailsContainer extends Component {
+export class BlogPostDetailsContainer extends Component {
   static propTypes = {
     match: PropTypes.object,
     posts: PropTypes.object,
-    getAllPosts: PropTypes.func
+    comments: PropTypes.object,
+    getAllPosts: PropTypes.func,
+    getAllComments: PropTypes.func
   }
 
-  static defaultPropTypes = {
-    posts: {}
+  static defaultProps = {
+    posts: {},
+    comments: {}
   }
 
   componentDidMount() {
@@ -45,9 +48,9 @@ class BlogPostDetailsContainer extends Component {
 
     return (
       <>
-        {posts.isLoading && <div>Loading</div>}
+        {posts.isLoading && <div className="loader">Loading</div>}
         {!posts.isLoading && posts.isLoaded && !post && (
-          <div>No post with such id: {postId}</div>
+          <div className="no-post">No post with such id: {postId}</div>
         )}
         {post && <BlogPostDetails post={post} comments={postComments} />}
       </>
@@ -55,7 +58,7 @@ class BlogPostDetailsContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ posts, comments }) => ({
+export const mapStateToProps = ({ posts, comments }) => ({
   posts,
   comments
 })

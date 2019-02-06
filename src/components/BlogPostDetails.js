@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-class DetailedPost extends PureComponent {
+class BlogPostDetails extends PureComponent {
   static propTypes = {
     post: PropTypes.object,
     comments: PropTypes.array
@@ -82,4 +82,4 @@ class DetailedPost extends PureComponent {
   }
 }
 
-export default DetailedPost
+export default BlogPostDetails
