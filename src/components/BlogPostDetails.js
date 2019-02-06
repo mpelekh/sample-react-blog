@@ -7,7 +7,7 @@ class BlogPostDetails extends PureComponent {
     comments: PropTypes.array
   }
 
-  static defaultPropTypes = {
+  static defaultProps = {
     post: {},
     comments: []
   }

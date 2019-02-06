@@ -10,7 +10,7 @@ class Home extends Component {
     getAllPosts: PropTypes.func
   }
 
-  static defaultPropTypes = {
+  static defaultProps = {
     posts: {}
   }
 
