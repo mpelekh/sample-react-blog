@@ -1,3 +1,4 @@
+import axios from 'axios'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import postsReducer, {
@@ -16,11 +17,28 @@ describe('Posts module', () => {
       mockStore = configureMockStore([thunk])(INITIAL_STATE)
     })
 
-    it('should perform expected actions on getAllPosts call', async () => {
+    it('should perform successfully actions on getAllPosts call', async () => {
       const expectedActions = [
         { type: GET_POSTS_LOADING },
         { type: GET_POSTS_SUCCESS, payload: [{ id: 1, name: 'test name' }] }
       ]
+
+      await mockStore.dispatch(getAllPosts())
+
+      expect(mockStore.getActions()).toEqual(expectedActions)
+    })
+
+    it('should perform error actions on getAllPosts call', async () => {
+      const error = new Error('API Error')
+      const expectedActions = [
+        { type: GET_POSTS_LOADING },
+        { type: GET_POSTS_ERROR, payload: error }
+      ]
+
+      // Reject error on calling mock API
+      jest
+        .spyOn(axios, 'get')
+        .mockImplementationOnce(() => Promise.reject(error))
 
       await mockStore.dispatch(getAllPosts())
 
