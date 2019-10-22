@@ -1,15 +1,15 @@
 {
-  "main.css": "/static/css/main.b870ae93.chunk.css",
-  "main.js": "/static/js/main.8d004fd6.chunk.js",
-  "main.js.map": "/static/js/main.8d004fd6.chunk.js.map",
-  "static/css/1.38a64d3f.chunk.css": "/static/css/1.38a64d3f.chunk.css",
-  "static/js/1.9e22086e.chunk.js": "/static/js/1.9e22086e.chunk.js",
-  "static/js/1.9e22086e.chunk.js.map": "/static/js/1.9e22086e.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.b870ae93.chunk.css.map": "/static/css/main.b870ae93.chunk.css.map",
-  "static/css/1.38a64d3f.chunk.css.map": "/static/css/1.38a64d3f.chunk.css.map",
-  "index.html": "/index.html",
-  "precache-manifest.62e7f6693ce5b97b97c8d50a6a86da25.js": "/precache-manifest.62e7f6693ce5b97b97c8d50a6a86da25.js",
-  "service-worker.js": "/service-worker.js"
+  "main.css": "/sample-react-blog/static/css/main.b870ae93.chunk.css",
+  "main.js": "/sample-react-blog/static/js/main.97b13cba.chunk.js",
+  "main.js.map": "/sample-react-blog/static/js/main.97b13cba.chunk.js.map",
+  "static/css/1.38a64d3f.chunk.css": "/sample-react-blog/static/css/1.38a64d3f.chunk.css",
+  "static/js/1.9e22086e.chunk.js": "/sample-react-blog/static/js/1.9e22086e.chunk.js",
+  "static/js/1.9e22086e.chunk.js.map": "/sample-react-blog/static/js/1.9e22086e.chunk.js.map",
+  "runtime~main.js": "/sample-react-blog/static/js/runtime~main.c9c5c64f.js",
+  "runtime~main.js.map": "/sample-react-blog/static/js/runtime~main.c9c5c64f.js.map",
+  "static/css/1.38a64d3f.chunk.css.map": "/sample-react-blog/static/css/1.38a64d3f.chunk.css.map",
+  "static/css/main.b870ae93.chunk.css.map": "/sample-react-blog/static/css/main.b870ae93.chunk.css.map",
+  "index.html": "/sample-react-blog/index.html",
+  "precache-manifest.a4ed866b1418211b6eab417ed732f0b0.js": "/sample-react-blog/precache-manifest.a4ed866b1418211b6eab417ed732f0b0.js",
+  "service-worker.js": "/sample-react-blog/service-worker.js"
 }
